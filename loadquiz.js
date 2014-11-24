@@ -12,5 +12,6 @@ RadioQuiz.getTest = function () {
         complete: function() {}
     });
 
+    var questRE = /^(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+)$/;
     return testAjax.responseText;
 }
