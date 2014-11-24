@@ -1,0 +1,38 @@
+body {
+    background: #D4F9D4;
+}
+.questionblock {
+    background: #33EE33;
+}
+
+.questionline {
+    background: #AAEEAA;
+}
+
+.questionline:nth-child(even) {
+    background: #80DE80;
+}
+
+.questionanswer {
+    display:table-cell; 
+}
+
+.select {
+    display:table-cell; 
+    background: #FFC493;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
+
+.questionline:nth-child(even) .select { 
+    background: #FAAD6E;
+}
+
+.select p {
+    
+}
+
+.scoreoutput {
+
+}
