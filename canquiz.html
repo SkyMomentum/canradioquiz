@@ -5,11 +5,12 @@
 <link rel="stylesheet" type="text/css" href="canquiz.css">
 <script src="jquery-2.1.1.js"></script>
 <script src="loadquiz.js"></script>
-
+<script>$( document ).ready(function () { RadioQuiz.getTest() });</script>
 </head>
 <body>
 
 <div class="questionblock">
+    <div class="question"> </div>
     <div class="questionline"> <div class="select" id="a"><p>A</p></div> <div class="questionanswer"></div> </div>
     <div class="questionline"> <div class="select" id="b"><p>B</p></div> <div class="questionanswer"></div> </div>
     <div class="questionline"> <div class="select" id="c"><p>C</p></div> <div class="questionanswer"></div> </div>
