@@ -1,6 +1,7 @@
 var RadioQuiz = RadioQuiz || {};
 
 RadioQuiz.rawQuiz = ""
+RadioQuiz.parsedQuiz = new Array(980); //Just a few extra
 
 RadioQuiz.getTest = function () {
     var testAjax = $.ajax( {
@@ -14,10 +15,14 @@ RadioQuiz.getTest = function () {
 
     var questRE = /^(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+)$/gm;    
    
-    var quizdata = questRE.exec( testAjax.responseText ); 
+    var quizdata = "";
+    //discard the first match as it's just column names
+    quizdata = questRE.exec( testAjax.responseText );
+    quizdata = questRE.exec( testAjax.responseText ); 
     var resArray = new Array();
-    do {
+    while (quizdata) {    
         resArray.push(quizdata);
         quizdata = questRE.exec( testAjax.responseText );
-    } while (quizdata);
+    } 
+    return resArray;
 }
