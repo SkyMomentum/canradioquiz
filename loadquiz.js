@@ -12,6 +12,12 @@ RadioQuiz.getTest = function () {
         complete: function() {}
     });
 
-    var questRE = /^(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+)$/;
-    return testAjax.responseText;
+    var questRE = /^(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+)$/gm;    
+   
+    var quizdata = questRE.exec( testAjax.responseText ); 
+    var resArray = new Array();
+    do {
+        resArray.push(quizdata);
+        quizdata = questRE.exec( testAjax.responseText );
+    } while (quizdata);
 }
