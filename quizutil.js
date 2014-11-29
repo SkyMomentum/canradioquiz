@@ -5,18 +5,19 @@ RadioQuiz.clearQuestionUI = function () {
 };
 
 RadioQuiz.displayQuestion = function ( question, language )  {
-    var offset =  0;
+    var langoffset =  0;
     var selector = new String;
     var questionStr = new String;
     
     if (language == "french") {
-        offset = 5;
+        langoffset = 7;
     } else {
-        offset = 0;
+        langoffset = 2;
     }
-    
+    //alert(question);
+    $( ".question" ).append(question[langoffset]);
     for( var i = 1; i < 5; i++) {
-        questionStr = question[i];
+        questionStr = question[i + langoffset];
         selector = "#" + i.toString();
         $( selector ).append( questionStr );
     }

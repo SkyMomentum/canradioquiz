@@ -10,19 +10,19 @@ RadioQuiz.getTest = function () {
         beforeSend: function() {},
         success: function(data, textStatus, jqXHR) { RadioQuiz.rawQuiz = data;},
         error: function() { alert("Failed to load quiz datafile."); },
-        complete: function() {}
+        complete: function(data, textStatus, jqXHR) {  
+            var questRE = /^(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+)$/gm;    
+           
+            var quizdata = "";
+            //discard the first match as it's just column names
+            quizdata = questRE.exec( data.responseText );
+            quizdata = questRE.exec( data.responseText ); 
+            var resArray = new Array();
+            while (quizdata) {    
+                resArray.push(quizdata);
+                quizdata = questRE.exec( data.responseText );
+            }
+            RadioQuiz.parsedQuiz = resArray;
+        }
     });
-
-    var questRE = /^(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+);(.+)$/gm;    
-   
-    var quizdata = "";
-    //discard the first match as it's just column names
-    quizdata = questRE.exec( testAjax.responseText );
-    quizdata = questRE.exec( testAjax.responseText ); 
-    var resArray = new Array();
-    while (quizdata) {    
-        resArray.push(quizdata);
-        quizdata = questRE.exec( testAjax.responseText );
-    } 
-    return resArray;
 }

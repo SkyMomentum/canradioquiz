@@ -9,22 +9,23 @@
 <script>
 var readyf = function () { 
     var quiz = RadioQuiz.getTest();
+    $( ".questionblock" ).mousedown( md );
 };
 var md = function () {
-    alert("PRING");
+    RadioQuiz.displayQuestion(RadioQuiz.parsedQuiz[2], "English");
 };
 $( document ).ready( readyf );
-$( ".questionblock").mousedown( md );
+
 </script>
 </head>
 <body>
 
 <div class="questionblock">
     <div class="question"> </div>
-    <div class="questionline"> <div class="select" id="1"><p>A</p></div> <div class="questionanswer"></div> </div>
-    <div class="questionline"> <div class="select" id="2"><p>B</p></div> <div class="questionanswer"></div> </div>
-    <div class="questionline"> <div class="select" id="3"><p>C</p></div> <div class="questionanswer"></div> </div>
-    <div class="questionline"> <div class="select" id="4"><p>D</p></div> <div class="questionanswer"></div> </div>
+    <div class="questionline"> <div class="select"><p>A</p></div> <div class="questionanswer" id="1"></div> </div>
+    <div class="questionline"> <div class="select"><p>B</p></div> <div class="questionanswer" id="2"></div> </div>
+    <div class="questionline"> <div class="select"><p>C</p></div> <div class="questionanswer" id="3"></div> </div>
+    <div class="questionline"> <div class="select"><p>D</p></div> <div class="questionanswer" id="4"></div> </div>
 </div>
 
 <div class="scoreoutput"></div>
