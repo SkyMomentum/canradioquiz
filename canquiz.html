@@ -8,11 +8,12 @@
 <script src="quizutil.js"></script>
 <script>
 var readyf = function () { 
-    var quiz = RadioQuiz.getTest();
+    RadioQuiz.getTest();
     $( ".questionblock" ).mousedown( md );
 };
 var md = function () {
-    RadioQuiz.displayQuestion(RadioQuiz.parsedQuiz[2], "English");
+    //RadioQuiz.displayQuestion(RadioQuiz.parsedQuiz[7], "English");
+    console.log(RadioQuiz.permutate(["1","2","3","4"]));
 };
 $( document ).ready( readyf );
 
